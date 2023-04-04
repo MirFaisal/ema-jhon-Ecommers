@@ -60,7 +60,7 @@ const Order = () => {
                   <h1 className="text-2xl font-extrabold text-red-500">
                     Your Ema-Jhon Cart is empty.
                   </h1>
-                  <Link to={"/shop"}>
+                  <Link to={"/home"}>
                     <button className="flex bg-orange-400 text-white my-5 mx-auto py-3 px-5 justify-center align-baseline mb-5 hover:bg-orange-500">
                       Review Order
                       <ShoppingBagIcon className="w-6" />
