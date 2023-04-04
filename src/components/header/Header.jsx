@@ -17,7 +17,7 @@ const Header = () => {
           <div className="main-nav p-4 flex justify-between items-center">
             {/* navbar brand */}
             <div className="nav-brand">
-              <Link to={"/"}>
+              <Link to={"/home"}>
                 <img src={Logo} alt="" />
               </Link>
             </div>

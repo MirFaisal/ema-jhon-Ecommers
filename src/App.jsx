@@ -12,6 +12,7 @@ function App() {
       element: <MainLayout />,
       children: [
         { path: "/", element: <Home /> },
+        { path: "/home", element: <Home /> },
         { path: "/shop", element: <Shop />, loader: productLoader },
         { path: "/order", element: <Order />, loader: orderLoader },
       ],
