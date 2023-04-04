@@ -5,7 +5,7 @@ import Cart from "../cart/Cart";
 import Product from "../product/Product";
 
 export const loader = async () => {
-  return fetch("products.json");
+  return fetch("/public/products.json");
 };
 const Shop = () => {
   const [cart, setCart] = useState([]);

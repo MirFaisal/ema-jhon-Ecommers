@@ -1,6 +1,5 @@
-import { ShoppingBagIcon } from "@heroicons/react/24/solid";
 import React, { useEffect, useState } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import {
   clearCart,
   getStoredCart,
@@ -47,7 +46,10 @@ const Order = () => {
         <div className="container">
           <div className="orders-wrapper grid grid-cols-2 content-center justify-items-center h-[90vh]">
             <div className="orders-item h-[740px] overflow-y-auto px-5 grid content-center">
-              {cart.length > 0 ? (
+              {cart.map((item) => (
+                <OrderItem key={item.id} item={item} removeItem={removeItem} />
+              ))}
+              {/* {cart.length > 0 ? (
                 cart.map((item) => (
                   <OrderItem
                     key={item.id}
@@ -67,7 +69,7 @@ const Order = () => {
                     </button>
                   </Link>
                 </>
-              )}
+              )} */}
             </div>
             <div className="cart w-full flex items-center">
               <OrdersCart clear={clear} cart={cart} />
