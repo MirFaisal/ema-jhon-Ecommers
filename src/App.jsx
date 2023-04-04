@@ -2,7 +2,7 @@ import React from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import ErrorElement from "./components/error/ErrorElement";
 import Home from "./components/home/Home";
-import Order, { loader as orderLoader } from "./components/order/Order";
+import Order from "./components/order/Order";
 import Shop from "./components/shop/Shop";
 import MainLayout from "./layout/MainLayout";
 function App() {
@@ -20,7 +20,13 @@ function App() {
             return fetch("products.json");
           },
         },
-        { path: "/order", element: <Order />, loader: orderLoader },
+        {
+          path: "/order",
+          element: <Order />,
+          loader: async () => {
+            return fetch("products.json");
+          },
+        },
       ],
       errorElement: <ErrorElement />,
     },

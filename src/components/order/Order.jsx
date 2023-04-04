@@ -8,9 +8,6 @@ import {
 import OrderItem from "../order-item/OrderItem";
 import OrdersCart from "./OrdersCart";
 
-export const loader = async () => {
-  return fetch("/public/products.json");
-};
 const Order = () => {
   const [cart, setCart] = useState([]);
   const data = useLoaderData();
