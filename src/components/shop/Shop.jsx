@@ -3,6 +3,9 @@ import { useLoaderData } from "react-router-dom";
 import { addToDb, clearCart, getStoredCart } from "../../utility/localStorage";
 import Cart from "../cart/Cart";
 import Product from "../product/Product";
+export const loader = async () => {
+  return fetch("/public/products.json");
+};
 const Shop = () => {
   const [cart, setCart] = useState([]);
   // load data frm api

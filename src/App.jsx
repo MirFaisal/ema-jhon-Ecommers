@@ -2,8 +2,8 @@ import React from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import ErrorElement from "./components/error/ErrorElement";
 import Home from "./components/home/Home";
-import Order from "./components/order/Order";
-import Shop from "./components/shop/Shop";
+import Order, { loader as orderLoader } from "./components/order/Order";
+import Shop, { loader as shopLoader } from "./components/shop/Shop";
 import MainLayout from "./layout/MainLayout";
 function App() {
   const router = createBrowserRouter([
@@ -16,16 +16,12 @@ function App() {
         {
           path: "/shop",
           element: <Shop />,
-          loader: async () => {
-            return fetch("products.json");
-          },
+          loader: shopLoader,
         },
         {
           path: "/order",
           element: <Order />,
-          loader: async () => {
-            return fetch("products.json");
-          },
+          loader: orderLoader,
         },
       ],
       errorElement: <ErrorElement />,
