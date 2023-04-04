@@ -3,7 +3,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import ErrorElement from "./components/error/ErrorElement";
 import Home from "./components/home/Home";
 import Order, { loader as orderLoader } from "./components/order/Order";
-import Shop, { loader as shopLoader } from "./components/shop/Shop";
+import Shop, { loader } from "./components/shop/Shop";
 import MainLayout from "./layout/MainLayout";
 function App() {
   const router = createBrowserRouter([
@@ -16,7 +16,7 @@ function App() {
         {
           path: "/shop",
           element: <Shop />,
-          loader: shopLoader,
+          loader: loader,
         },
         {
           path: "/order",
