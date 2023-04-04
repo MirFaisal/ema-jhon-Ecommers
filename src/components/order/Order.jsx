@@ -39,24 +39,15 @@ const Order = () => {
     setCart([]);
     clearCart();
   };
-  console.log(cart.length);
   return (
     <>
       <section className="order">
         <div className="container">
           <div className="orders-wrapper grid grid-cols-2 content-center justify-items-center h-[90vh]">
-            <div className="orders-item h-[720px] overflow-y-auto px-5 grid content-center">
-              {cart.length > 0 ? (
-                cart.map((item) => (
-                  <OrderItem
-                    key={item.id}
-                    item={item}
-                    removeItem={removeItem}
-                  />
-                ))
-              ) : (
-                <h1 className="text-2xl">no data</h1>
-              )}
+            <div className="orders-item h-[700px] overflow-y-auto px-5">
+              {cart.map((item) => (
+                <OrderItem key={item.id} item={item} removeItem={removeItem} />
+              ))}
             </div>
             <div className="cart w-full flex items-center">
               <OrdersCart clear={clear} cart={cart} />
