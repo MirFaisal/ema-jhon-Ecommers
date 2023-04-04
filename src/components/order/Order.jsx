@@ -45,11 +45,8 @@ const Order = () => {
       <section className="order">
         <div className="container">
           <div className="orders-wrapper grid grid-cols-2 content-center justify-items-center h-[90vh]">
-            <div className="orders-item h-[740px] overflow-y-auto px-5 grid content-center">
-              {cart.map((item) => (
-                <OrderItem key={item.id} item={item} removeItem={removeItem} />
-              ))}
-              {/* {cart.length > 0 ? (
+            <div className="orders-item h-[720px] overflow-y-auto px-5 grid content-center">
+              {cart.length > 0 ? (
                 cart.map((item) => (
                   <OrderItem
                     key={item.id}
@@ -58,18 +55,8 @@ const Order = () => {
                   />
                 ))
               ) : (
-                <>
-                  <h1 className="text-2xl font-extrabold text-red-500">
-                    Your Ema-Jhon Cart is empty.
-                  </h1>
-                  <Link to={"/home"}>
-                    <button className="flex bg-orange-400 text-white my-5 mx-auto py-3 px-5 justify-center align-baseline mb-5 hover:bg-orange-500">
-                      Review Order
-                      <ShoppingBagIcon className="w-6" />
-                    </button>
-                  </Link>
-                </>
-              )} */}
+                <h1 className="text-2xl">no data</h1>
+              )}
             </div>
             <div className="cart w-full flex items-center">
               <OrdersCart clear={clear} cart={cart} />
