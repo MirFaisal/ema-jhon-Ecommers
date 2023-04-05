@@ -10,7 +10,7 @@ export const loader = async () => {
 const Shop = () => {
   const [cart, setCart] = useState([]);
   // load data frm api
-  const data = useLoaderData();
+  const products = useLoaderData();
   const addToCart = (selectedProduct) => {
     let newCart = [];
 
@@ -34,7 +34,7 @@ const Shop = () => {
     const processedCart = [];
 
     for (const id in storedCart) {
-      const matchProduct = data.find((product) => {
+      const matchProduct = products.find((product) => {
         return product.id === id;
       });
       if (matchProduct) {
@@ -44,7 +44,7 @@ const Shop = () => {
       }
     }
     setCart(processedCart);
-  }, [data]);
+  }, [products]);
 
   // add to cart event handel
   const clear = () => {
@@ -57,7 +57,7 @@ const Shop = () => {
       <div className="products">
         <div className="flex justify-between flex-row-reverse sm:flex-row">
           <div className="products-wrapper basis-7/12 sm:basic-8/12 lg:basis-10/12 md:basis-9/12 mt-60 grid grid-cols-1 justify-items-center md:grid-cols-2 lg:grid-cols-3 gap-y-5">
-            {data.map((product) => (
+            {products.map((product) => (
               <Product
                 key={product.id}
                 product={product}
