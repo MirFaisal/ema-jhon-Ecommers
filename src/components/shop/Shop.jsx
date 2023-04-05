@@ -43,8 +43,9 @@ const Shop = () => {
           processedCart.push(matchProduct);
         }
       }
+
+      setCart(processedCart);
     }
-    setCart(processedCart);
   }, [data]);
 
   // add to cart event handel
