@@ -1,5 +1,6 @@
+import { ArrowSmallRightIcon, ShoppingBagIcon } from "@heroicons/react/24/solid";
 import React, { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import {
   clearCart,
   getStoredCart,
@@ -7,10 +8,6 @@ import {
 } from "../../utility/localStorage";
 import OrderItem from "../order-item/OrderItem";
 import OrdersCart from "./OrdersCart";
-
-// export const loader = async () => {
-//   return fetch("products.json");
-// };
 const Order = () => {
   const [cart, setCart] = useState([]);
   const data = useLoaderData();
@@ -45,9 +42,27 @@ const Order = () => {
         <div className="container">
           <div className="orders-wrapper grid grid-cols-2 content-center justify-items-center h-[90vh]">
             <div className="orders-item h-[700px] overflow-y-auto px-5 grid content-center">
-              {cart.map((item) => (
-                <OrderItem key={item.id} item={item} removeItem={removeItem} />
-              ))}
+              {cart.length > 0 ? (
+                cart.map((item) => (
+                  <OrderItem
+                    key={item.id}
+                    item={item}
+                    removeItem={removeItem}
+                  />
+                ))
+              ) : (
+                <>
+                  <p className="text-2xl font-bold text-red-500">
+                    Your Ema-Jhon cart is empty
+                  </p>
+                  <Link to={"/order"}>
+                    <button className="flex bg-orange-400 w-8/12 text-white my-4 mx-auto py-3 justify-center align-baseline mb-5 hover:bg-orange-500">
+                      Review Order
+                      <ShoppingBagIcon className="ms-2 w-6" />
+                    </button>
+                  </Link>
+                </>
+              )}
             </div>
             <div className="cart w-full flex items-center">
               <OrdersCart clear={clear} cart={cart} />
