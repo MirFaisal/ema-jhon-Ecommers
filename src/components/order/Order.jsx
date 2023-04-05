@@ -13,13 +13,14 @@ export const loader = async () => {
 };
 const Order = () => {
   const [cart, setCart] = useState([]);
-  const data = useLoaderData();
+  const products = useLoaderData();
+
   useEffect(() => {
-    const processedCart = [];
     const storedCart = getStoredCart();
+    const processedCart = [];
 
     for (const id in storedCart) {
-      const matchproduct = data.find((product) => product.id === id);
+      const matchproduct = products.find((product) => product.id === id);
 
       if (matchproduct) {
         const quantity = storedCart[id];
@@ -28,7 +29,7 @@ const Order = () => {
       }
     }
     setCart(processedCart);
-  }, [data]);
+  }, [products]);
 
   const removeItem = (id) => {
     const rest = cart.filter((product) => product.id !== id);
@@ -45,22 +46,9 @@ const Order = () => {
         <div className="container">
           <div className="orders-wrapper grid grid-cols-2 content-center justify-items-center h-[90vh]">
             <div className="orders-item h-[700px] overflow-y-auto px-5 grid content-center">
-              {cart.length > 0 ? (
-                cart.map((item) => (
-                  <OrderItem
-                    key={item.id}
-                    item={item}
-                    removeItem={removeItem}
-                  />
-                ))
-              ) : (
-                <>
-                  <h2 className="text-2xl text-red-500 font-bold">
-                    {" "}
-                    Your Ema-Jhon cart is Empty
-                  </h2>
-                </>
-              )}
+              {cart.map((item) => (
+                <OrderItem key={item.id} item={item} removeItem={removeItem} />
+              ))}
             </div>
             <div className="cart w-full flex items-center">
               <OrdersCart clear={clear} cart={cart} />

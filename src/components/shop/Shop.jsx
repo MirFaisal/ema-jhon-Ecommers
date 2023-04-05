@@ -22,7 +22,6 @@ const Shop = () => {
       const rest = cart.filter((product) => product.id !== selectedProduct.id);
       selectedProduct.quantity = selectedProduct.quantity + 1;
       newCart = [...rest, selectedProduct];
-      console.log(newCart);
     }
     setCart(newCart);
     addToDb(selectedProduct.id);
