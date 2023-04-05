@@ -1,5 +1,6 @@
+import { ArrowSmallRightIcon } from "@heroicons/react/24/solid";
 import React, { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { addToDb, clearCart, getStoredCart } from "../../utility/localStorage";
 import Cart from "../cart/Cart";
 import Product from "../product/Product";
@@ -64,7 +65,15 @@ const Shop = () => {
           </div>
           <div className="cart relative basis-5/12 sm:basis-4/12 lg:basis-2/12 md:basis-3/12 mt-60 flex border w-full">
             <div className="sticky h-[100vh] top-0 bg-orange-200 w-full">
-              <Cart clear={clear} cart={carts} />
+              <Cart clear={clear} cart={carts}>
+                {/* component children */}
+                <Link to={"/order"}>
+                  <button className="flex bg-orange-400 w-10/12 text-white mx-auto py-3 justify-center align-baseline mb-5 hover:bg-orange-500">
+                    Review Order
+                    <ArrowSmallRightIcon className="w-6" />
+                  </button>
+                </Link>
+              </Cart>
             </div>
           </div>
         </div>

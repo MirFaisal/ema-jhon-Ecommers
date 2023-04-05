@@ -1,8 +1,7 @@
-import { ArrowSmallRightIcon, TrashIcon } from "@heroicons/react/24/solid";
+import { TrashIcon } from "@heroicons/react/24/solid";
 import React from "react";
-import { Link } from "react-router-dom";
 
-const Cart = ({ cart, clear }) => {
+const Cart = ({ cart, clear, children }) => {
   let totalSelect = 0;
   let totalSeletedPrice = 0;
   let totalShipping = 0;
@@ -55,12 +54,7 @@ const Cart = ({ cart, clear }) => {
           Clear Cart
           <TrashIcon className="w-6" />
         </button>
-        <Link to={"/order"}>
-          <button className="flex bg-orange-400 w-10/12 text-white mx-auto py-3 justify-center align-baseline mb-5 hover:bg-orange-500">
-            Review Order
-            <ArrowSmallRightIcon className="w-6" />
-          </button>
-        </Link>
+        {children}
       </div>
     </div>
   );
