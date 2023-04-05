@@ -33,19 +33,17 @@ const Shop = () => {
     const storedCart = getStoredCart();
     const processedCart = [];
 
-    if (storedCart) {
-      for (const id in storedCart) {
-        const matchProduct = data.find((product) => product.id === id);
-
-        if (matchProduct) {
-          const userSeletedQuantity = storedCart[id];
-          matchProduct.quantity = userSeletedQuantity;
-          processedCart.push(matchProduct);
-        }
+    for (const id in storedCart) {
+      const matchProduct = data.find((product) => {
+        return product.id === id;
+      });
+      if (matchProduct) {
+        const userSeletedQuantity = storedCart[id];
+        matchProduct.quantity = userSeletedQuantity;
+        processedCart.push(matchProduct);
       }
-
-      setCart(processedCart);
     }
+    setCart(processedCart);
   }, [data]);
 
   // add to cart event handel
