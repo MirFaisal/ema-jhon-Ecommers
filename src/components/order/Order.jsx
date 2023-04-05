@@ -13,14 +13,14 @@ export const loader = async () => {
 };
 const Order = () => {
   const [cart, setCart] = useState([]);
-  const products = useLoaderData();
+  const data = useLoaderData();
 
   useEffect(() => {
     const storedCart = getStoredCart();
     const processedCart = [];
 
     for (const id in storedCart) {
-      const matchProduct = products.find((product) => product.id == id);
+      const matchProduct = data.find((product) => product.id === id);
       if (matchProduct) {
         const userSeletedQuantity = storedCart[id];
         matchProduct.quantity = userSeletedQuantity;
@@ -28,7 +28,7 @@ const Order = () => {
       }
     }
     setCart(processedCart);
-  }, [products]);
+  }, [data]);
 
   const removeItem = (id) => {
     const rest = cart.filter((product) => product.id !== id);
