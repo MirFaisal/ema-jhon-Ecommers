@@ -8,18 +8,18 @@ export const loader = async () => {
   return fetch("products.json");
 };
 const Shop = () => {
-  const [cart, setCart] = useState([]);
+  const [carts, setCart] = useState([]);
   // load data frm api
   const products = useLoaderData();
   const addToCart = (selectedProduct) => {
     let newCart = [];
 
-    const exists = cart.find((product) => product.id === selectedProduct.id);
+    const exists = carts.find((product) => product.id === selectedProduct.id);
     if (!exists) {
       selectedProduct.quantity = 1;
-      newCart = [...cart, selectedProduct];
+      newCart = [...carts, selectedProduct];
     } else {
-      const rest = cart.filter((product) => product.id !== selectedProduct.id);
+      const rest = carts.filter((product) => product.id !== selectedProduct.id);
       selectedProduct.quantity = selectedProduct.quantity + 1;
       newCart = [...rest, selectedProduct];
     }
@@ -64,7 +64,7 @@ const Shop = () => {
           </div>
           <div className="cart relative basis-5/12 sm:basis-4/12 lg:basis-2/12 md:basis-3/12 mt-60 flex border w-full">
             <div className="sticky h-[100vh] top-0 bg-orange-200 w-full">
-              <Cart clear={clear} cart={cart} />
+              <Cart clear={clear} cart={carts} />
             </div>
           </div>
         </div>
