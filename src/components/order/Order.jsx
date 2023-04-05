@@ -1,4 +1,4 @@
-import { ArrowSmallRightIcon, ShoppingBagIcon } from "@heroicons/react/24/solid";
+import { ShoppingBagIcon } from "@heroicons/react/24/solid";
 import React, { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import {
@@ -55,7 +55,7 @@ const Order = () => {
                   <p className="text-2xl font-bold text-red-500">
                     Your Ema-Jhon cart is empty
                   </p>
-                  <Link to={"/order"}>
+                  <Link to={"/shop"}>
                     <button className="flex bg-orange-400 w-8/12 text-white my-4 mx-auto py-3 justify-center align-baseline mb-5 hover:bg-orange-500">
                       Review Order
                       <ShoppingBagIcon className="ms-2 w-6" />
