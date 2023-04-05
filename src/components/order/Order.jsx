@@ -20,7 +20,7 @@ const Order = () => {
     const processedCart = [];
 
     for (const id in storedCart) {
-      const matchproduct = products.find((product) => product.id === id);
+      const matchproduct = products.filter((product) => product.id === id);
 
       if (matchproduct) {
         const quantity = storedCart[id];
