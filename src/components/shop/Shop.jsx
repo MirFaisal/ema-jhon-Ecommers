@@ -11,7 +11,6 @@ const Shop = () => {
   const [cart, setCart] = useState([]);
   // load data frm api
   const data = useLoaderData();
-  console.log(data);
   const addToCart = (selectedProduct) => {
     let newCart = [];
 
@@ -34,13 +33,15 @@ const Shop = () => {
     const storedCart = getStoredCart();
     const processedCart = [];
 
-    for (const id in storedCart) {
-      const matchProduct = data.find((product) => product.id === id);
+    if (storedCart) {
+      for (const id in storedCart) {
+        const matchProduct = data.find((product) => product.id === id);
 
-      if (matchProduct) {
-        const userSeletedQuantity = storedCart[id];
-        matchProduct.quantity = userSeletedQuantity;
-        processedCart.push(matchProduct);
+        if (matchProduct) {
+          const userSeletedQuantity = storedCart[id];
+          matchProduct.quantity = userSeletedQuantity;
+          processedCart.push(matchProduct);
+        }
       }
     }
     setCart(processedCart);
