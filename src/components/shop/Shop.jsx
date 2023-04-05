@@ -33,9 +33,7 @@ const Shop = () => {
     const processedCart = [];
 
     for (const id in storedCart) {
-      const matchProduct = products.find((product) => {
-        return product.id === id;
-      });
+      const matchProduct = products.filter((product) => product.id == id);
       if (matchProduct) {
         const userSeletedQuantity = storedCart[id];
         matchProduct.quantity = userSeletedQuantity;
