@@ -2,7 +2,7 @@ import React from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import ErrorElement from "./components/error/ErrorElement";
 import Home from "./components/home/Home";
-import Order, { loader as orderLoader } from "./components/order/Order";
+import Order from "./components/order/Order";
 import Shop, { loader as shopLoader } from "./components/shop/Shop";
 import MainLayout from "./layout/MainLayout";
 function App() {
@@ -21,7 +21,9 @@ function App() {
         {
           path: "/order",
           element: <Order />,
-          loader: orderLoader,
+          loader: () => {
+            return fetch("products.json");
+          },
         },
       ],
       errorElement: <ErrorElement />,
