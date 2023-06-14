@@ -12,6 +12,7 @@ export const addToDb = (id) => {
   localStorage.setItem("shopping-cart", JSON.stringify(shoppingCart));
 };
 
+// function for geting all localstore data.
 export const getStoredCart = () => {
   let shoppingCart = {};
   const storedCart = localStorage.getItem("shopping-cart");
@@ -22,6 +23,7 @@ export const getStoredCart = () => {
   return shoppingCart;
 };
 
+//remove fron single item for every single call.
 export const removeFromLoacl = (id) => {
   const shoppingCart = getStoredCart();
   if (shoppingCart) {

@@ -20,7 +20,7 @@ const Home = () => {
                   Discover all the new arrivals of ready-to-wear collection.
                 </p>
               </div>
-              <div className="btn-primary">
+              <div>
                 <Link to={"/shop"}>
                   {" "}
                   <button className="py-3 px-3 bg-amber-500 text-white rounded-md hover:bg-amber-600">
